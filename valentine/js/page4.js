@@ -1,126 +1,78 @@
-const puzzlePiece = document.getElementById('puzzlePiece');
-const dropZone = document.getElementById('dropZone');
-const completionMessage = document.getElementById('completionMessage');
-const finalButton = document.getElementById('finalButton');
-const puzzleBoard = document.querySelector('.puzzle-board');
+const loveVideo = document.getElementById('loveVideo');
+const backButton = document.getElementById('backButton');
 
-let draggedPiece = null;
+// Автоматическое воспроизведение при наведении (опционально)
+loveVideo.addEventListener('mouseenter', () => {
+    console.log('Видео готово к просмотру');
+});
 
-// Обработчики событий drag-and-drop
-puzzlePiece.addEventListener('dragstart', dragStart);
-puzzlePiece.addEventListener('dragend', dragEnd);
-
-dropZone.addEventListener('dragover', dragOver);
-dropZone.addEventListener('dragenter', dragEnter);
-dropZone.addEventListener('dragleave', dragLeave);
-dropZone.addEventListener('drop', drop);
-
-// Функции drag-and-drop
-function dragStart(e) {
-    draggedPiece = this;
-    e.dataTransfer.setData('text/plain', this.id);
+// Создание летающих сердечек при загрузке
+window.addEventListener('load', () => {
+    createFloatingHearts();
     
-    // Визуальный эффект при начале перетаскивания
+    // Автоматически прокручиваем к видео через секунду
     setTimeout(() => {
-        this.style.opacity = '0.8';
-        this.style.transform = 'scale(1.2) translateY(-5px)';
-    }, 0);
-}
+        document.querySelector('.video-container').scrollIntoView({ behavior: 'smooth' });
+    }, 1000);
+});
 
-function dragEnd(e) {
-    this.style.opacity = '1';
-    this.style.transform = 'scale(1) translateY(0)';
-}
-
-function dragOver(e) {
-    e.preventDefault();
-}
-
-function dragEnter(e) {
-    e.preventDefault();
-    dropZone.classList.add('hover');
-}
-
-function dragLeave(e) {
-    dropZone.classList.remove('hover');
-}
-
-function drop(e) {
-    e.preventDefault();
-    dropZone.classList.remove('hover');
+// Функция создания летающих сердечек
+function createFloatingHearts() {
+    const heartEmojis = ['❤️', '💕', '💖', '💘', '💝', '💗', '💓'];
+    const container = document.querySelector('.container');
     
-    const id = e.dataTransfer.getData('text/plain');
-    const draggableElement = document.getElementById(id);
-    
-    // Проверяем, что перетащили правильную деталь
-    if (draggableElement === puzzlePiece) {
-        // Создаём новую деталь на месте пустого слота
-        const newPiece = document.createElement('div');
-        newPiece.className = 'puzzle-piece piece-7 assembled';
-        newPiece.style.top = '113px';
-        newPiece.style.left = '211px';
-        newPiece.style.backgroundPosition = '-201px -103px';
-        newPiece.style.position = 'absolute';
-        newPiece.style.zIndex = '6';
-        newPiece.style.boxShadow = '4px 4px 12px rgba(0,0,0,0.2)';
-        newPiece.style.transform = 'translate(2px, 2px)';
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.style.cssText = `
+            position: absolute;
+            font-size: ${16 + Math.random() * 16}px;
+            color: rgba(255, 105, 180, ${0.3 + Math.random() * 0.7});
+            top: ${Math.random() * 100}%;
+            left: ${Math.random() * 100}%;
+            animation: floatHeart ${3 + Math.random() * 5}s ease-in-out infinite;
+            animation-delay: ${Math.random() * 2}s;
+            z-index: -1;
+            pointer-events: none;
+        `;
         
-        puzzleBoard.appendChild(newPiece);
-        
-        // Убираем свободную деталь
-        puzzlePiece.style.display = 'none';
-        dropZone.style.display = 'none';
-        
-        // Анимация собранного пазла
-        puzzleBoard.classList.add('completed');
-        
-        // Создаем конфетти
-        createConfetti();
-        
-        // Показываем сообщение через секунду
-        setTimeout(() => {
-            completionMessage.style.display = 'block';
-            completionMessage.scrollIntoView({ behavior: 'smooth' });
-        }, 1000);
+        container.appendChild(heart);
     }
 }
 
-// Функция создания конфетти
-function createConfetti() {
-    const colors = ['#FF69B4', '#FF1493', '#FFB6C1', '#FFE4E1', '#FFC0CB', '#E91E63'];
-    
-    for (let i = 0; i < 80; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.top = '-20px';
-        confetti.style.animationDelay = `${Math.random() * 2}s`;
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        confetti.style.width = `${8 + Math.random() * 8}px`;
-        confetti.style.height = confetti.style.width;
-        
-        document.body.appendChild(confetti);
-        
-        // Удаляем конфетти после анимации
-        setTimeout(() => {
-            confetti.remove();
-        }, 3200);
+// Добавляем анимацию для сердечек через CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatHeart {
+        0%, 100% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        25% {
+            transform: translateY(-30px) translateX(20px) rotate(10deg);
+        }
+        50% {
+            transform: translateY(-60px) translateX(0) rotate(0deg);
+        }
+        75% {
+            transform: translateY(-30px) translateX(-20px) rotate(-10deg);
+        }
     }
-}
+`;
+document.head.appendChild(style);
 
-// Обработчик кнопки "Назад на главную"
-finalButton.addEventListener('click', () => {
+// Обработчик кнопки "Вернуться на главную"
+backButton.addEventListener('click', () => {
     navigateTo('index.html');
 });
 
-// Добавляем фоновое сердечко через SVG если браузер не поддерживает clip-path с path()
-window.addEventListener('load', () => {
-    // Проверяем поддержку
-    if (!CSS.supports('clip-path', 'path("M10 10 L90 90")')) {
-        document.querySelector('.heart-background').style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M100 30 C130 30, 160 60, 160 100 C160 140, 130 170, 100 200 C70 170, 40 140, 40 100 C40 60, 70 30, 100 30 Z" fill="%23FF69B4" opacity="0.8"/></svg>\')';
-        document.querySelector('.heart-background').style.backgroundSize = 'contain';
-        document.querySelector('.heart-background').style.backgroundRepeat = 'no-repeat';
-        document.querySelector('.heart-background').style.clipPath = 'none';
-    }
+// Функция для красивого завершения видео
+loveVideo.addEventListener('ended', () => {
+    // Создаем эффект после окончания видео
+    const videoWrapper = document.querySelector('.video-wrapper');
+    videoWrapper.style.boxShadow = '0 0 50px rgba(255, 105, 180, 0.8)';
+    
+    setTimeout(() => {
+        videoWrapper.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+    }, 2000);
 });
