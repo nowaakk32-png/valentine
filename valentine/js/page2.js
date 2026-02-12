@@ -120,7 +120,7 @@ function checkSecretPin() {
             secretPinModal.classList.remove('active');
             setTimeout(() => {
                 alert('Ты угадала секретный код! 💘\nЭто твое день рождение!!! Я люблю тебя! \nТебя ждет еще один сюрприз!');
-                navigateTo('page3.html');
+                navigateTo('page4.html');
             }, 500);
         }, 1500);
     } else {
@@ -146,4 +146,5 @@ style.textContent = `
         75% { transform: translateX(5px); }
     }
 `;
+
 document.head.appendChild(style);
