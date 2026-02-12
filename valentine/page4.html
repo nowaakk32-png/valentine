@@ -1,1 +1,66 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Секретный пазл для Дашулечки 🧩</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page4.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="puzzle-title">Секретный пазл для моей Дашулечки 💘</h1>
+        
+        <div class="puzzle-container">
+            <!-- Контейнер для пазла -->
+            <div class="puzzle-board">
+                <!-- Почти собранное сердечко -->
+                <div class="puzzle-heart">
+                    <div class="heart-piece piece-1"></div>
+                    <div class="heart-piece piece-2"></div>
+                    <div class="heart-piece piece-3"></div>
+                    <div class="heart-piece piece-4"></div>
+                    <div class="heart-piece piece-5"></div>
+                    <div class="heart-piece piece-6"></div>
+                    <div class="heart-piece piece-7"></div>
+                    <div class="heart-piece piece-8"></div>
+                    
+                    <!-- Место для последней детали -->
+                    <div id="dropZone" class="drop-zone">
+                        <div class="drop-placeholder">?</div>
+                    </div>
+                </div>
+                
+                <!-- Последняя деталь пазла -->
+                <div 
+                    id="puzzlePiece" 
+                    class="puzzle-piece draggable"
+                    draggable="true"
+                >
+                    💕
+                </div>
+            </div>
+            
+            <p class="puzzle-instruction">Перетащи последнюю детальку на место и собери наше сердечко вместе 💖</p>
+        </div>
+        
+        <!-- Сообщение после сборки пазла -->
+        <div id="completionMessage" class="completion-message">
+            <h2>💘 Ты собрала наше сердечко! 💘</h2>
+            <p class="completion-text">
+                Моя любимая Дашулечка! Ты - мое солнышко, моя принцессочка, мой котенок и мой ангелочек! 🌹<br><br>
+                
+                Ты делаешь меня счастливым каждый день. Я люблю тебя больше всего на свете!<br><br>
+                
+                Спасибо, что ты есть у меня. Ты - самое ценное сокровище в моей жизни 💕<br><br>
+                
+                С любовью, твой Илья 💝
+            </p>
+            <button id="finalButton" class="btn btn-final">Назад на главную 🏠</button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script src="js/page4.js"></script>
+</body>
+</html>
