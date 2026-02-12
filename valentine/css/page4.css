@@ -1,16 +1,18 @@
-/* Стили для страницы с пазлом */
+/* Стили для страницы с видео */
 
-.puzzle-title {
-    font-size: 32px;
+.video-title {
+    font-size: 36px;
     margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 3px 3px 6px rgba(233, 30, 99, 0.3);
+    color: #E91E63;
     animation: fadeInDown 1s ease;
+    text-align: center;
 }
 
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -18,174 +20,146 @@
     }
 }
 
-.puzzle-container {
+.video-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
-.puzzle-board {
+/* Декоративная рамка для видео */
+.video-frame {
     position: relative;
-    width: 400px;
-    height: 300px;
-    background: rgba(255, 240, 245, 0.3);
-    border-radius: 15px;
-    border: 3px solid #FFB6C1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 228, 225, 0.3));
+    border-radius: 25px;
+    border: 5px solid #FFB6C1;
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
+    animation: frameGlow 3s ease-in-out infinite;
 }
 
-/* Фон пазла - сердечко */
-.puzzle-background {
-    position: absolute;
+@keyframes frameGlow {
+    0%, 100% { box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3); }
+    50% { box-shadow: 0 15px 60px rgba(255, 105, 180, 0.6); }
+}
+
+.frame-decoration {
+    position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.2;
-    z-index: 1;
 }
 
-.heart-background {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, #FF69B4, #FF1493);
-    clip-path: path('M100 30 C130 30, 160 60, 160 100 C160 140, 130 170, 100 200 C70 170, 40 140, 40 100 C40 60, 70 30, 100 30 Z');
-    animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* Стили для кусочков пазла */
-.puzzle-piece {
+/* Угловые декорации */
+.frame-corner {
     position: absolute;
-    width: 95px;
-    height: 95px;
-    background: linear-gradient(135deg, #FFD6E8, #FFE4E1);
-    border: 2px solid #FFB6C1;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
-    z-index: 5;
-    background-size: 400px 300px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><path d="M200 60 C230 60, 260 90, 260 130 C260 170, 230 200, 200 230 C170 200, 140 170, 140 130 C140 90, 170 60, 200 60 Z" fill="%23FF69B4" opacity="0.8"/></svg>');
+    width: 30px;
+    height: 30px;
+    border: 3px solid #FF69B4;
 }
 
-/* Позиции собранных кусочков */
-.piece-1 { top: 15px; left: 15px; background-position: -5px -5px; }
-.piece-2 { top: 15px; left: 113px; background-position: -103px -5px; }
-.piece-3 { top: 15px; left: 211px; background-position: -201px -5px; }
-.piece-4 { top: 15px; left: 309px; background-position: -299px -5px; }
-
-.piece-5 { top: 113px; left: 15px; background-position: -5px -103px; }
-.piece-6 { top: 113px; left: 113px; background-position: -103px -103px; }
-/* piece-7 - это пустое место (будет заполнено позже) */
-.piece-8 { top: 113px; left: 309px; background-position: -299px -103px; }
-
-.piece-9 { top: 211px; left: 15px; background-position: -5px -201px; }
-.piece-10 { top: 211px; left: 113px; background-position: -103px -201px; }
-.piece-11 { top: 211px; left: 211px; background-position: -201px -201px; }
-.piece-12 { top: 211px; left: 309px; background-position: -299px -201px; }
-
-/* Собранные кусочки имеют тень и эффект глубины */
-.puzzle-piece.assembled {
-    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
-    transform: translate(2px, 2px);
-    transition: all 0.3s ease;
+.top-left {
+    top: -15px;
+    left: -15px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
 }
 
-/* Место для последней детали (пустое) */
-.drop-zone {
+.top-right {
+    top: -15px;
+    right: -15px;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+}
+
+.bottom-left {
+    bottom: -15px;
+    left: -15px;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+}
+
+.bottom-right {
+    bottom: -15px;
+    right: -15px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+}
+
+/* Летающие сердечки вокруг рамки */
+.frame-hearts {
     position: absolute;
-    top: 113px;
-    left: 211px;
-    width: 95px;
-    height: 95px;
-    background: rgba(255, 228, 225, 0.3);
-    border: 3px dashed #FF69B4;
-    border-radius: 8px;
+    top: -40px;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-    animation: pulseBorder 2s ease-in-out infinite;
+    justify-content: space-around;
+    animation: heartsFloat 5s ease-in-out infinite;
 }
 
-@keyframes pulseBorder {
-    0%, 100% { 
-        border-color: #FF69B4;
-        box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.3);
-    }
-    50% { 
-        border-color: #FF1493;
-        box-shadow: 0 0 0 8px rgba(255, 105, 180, 0);
-    }
+.frame-hearts span {
+    font-size: 20px;
+    animation: heartBounce 2s ease-in-out infinite;
 }
 
-/* Последняя деталь пазла (свободная) */
-.puzzle-piece.draggable {
-    width: 100px;
-    height: 100px;
-    top: auto;
-    left: auto;
-    bottom: 30px;
-    right: 30px;
-    cursor: grab;
-    z-index: 20;
-    background-position: -201px -103px !important;
-    animation: float 2s ease-in-out infinite;
-    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
-}
+.frame-hearts span:nth-child(1) { animation-delay: 0s; }
+.frame-hearts span:nth-child(2) { animation-delay: 0.2s; }
+.frame-hearts span:nth-child(3) { animation-delay: 0.4s; }
+.frame-hearts span:nth-child(4) { animation-delay: 0.6s; }
+.frame-hearts span:nth-child(5) { animation-delay: 0.8s; }
 
-.puzzle-piece.draggable:active {
-    cursor: grabbing;
-    transform: scale(1.1) !important;
-}
-
-@keyframes float {
+@keyframes heartsFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* Инструкция */
-.puzzle-instruction {
-    font-size: 18px;
-    color: #E91E63;
-    text-align: center;
-    font-style: italic;
-    max-width: 500px;
-    margin-top: 20px;
+@keyframes heartBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
 }
 
-/* Сообщение после сборки */
-.completion-message {
-    display: none;
-    background: white;
-    border-radius: 25px;
-    padding: 40px;
-    margin-top: 30px;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 15px 50px rgba(233, 30, 99, 0.3);
-    border: 5px solid #FFB6C1;
-    animation: slideUp 0.8s ease;
+/* Обёртка для видео */
+.video-wrapper {
+    position: relative;
+    width: 600px;
+    max-width: 90vw;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes slideUp {
+/* Видео */
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+video:hover {
+    transform: scale(1.01);
+}
+
+/* Подпись под видео */
+.video-caption {
+    background: rgba(255, 240, 245, 0.7);
+    padding: 20px 40px;
+    border-radius: 15px;
+    border-left: 5px solid #FF69B4;
+    text-align: center;
+    max-width: 700px;
+    animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -193,21 +167,15 @@
     }
 }
 
-.completion-message h2 {
-    font-size: 28px;
+.video-caption p {
+    font-size: 20px;
     color: #E91E63;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-style: italic;
+    line-height: 1.6;
 }
 
-.completion-text {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #FF69B4;
-    margin-bottom: 30px;
-}
-
-.btn-final {
+/* Кнопка возврата */
+.btn-back {
     background: linear-gradient(135deg, #FF69B4, #FF1493);
     color: white;
     padding: 15px 50px;
@@ -217,54 +185,40 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    margin-top: 20px;
+    animation: pulseButton 2s ease-in-out infinite;
 }
 
-.btn-final:hover {
+.btn-back:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 25px rgba(233, 30, 99, 0.6);
 }
 
-.btn-final:active {
+.btn-back:active {
     transform: translateY(1px) scale(0.98);
 }
 
-/* Эффект при наведении на зону для вставки */
-.drop-zone.hover {
-    background: rgba(255, 105, 180, 0.2);
-    border-color: #FF1493;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-    transform: scale(1.05);
-    transition: all 0.2s ease;
+@keyframes pulseButton {
+    0%, 100% { box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4); }
+    50% { box-shadow: 0 6px 30px rgba(255, 105, 180, 0.8); }
 }
 
-/* Стили для собранного пазла */
-.puzzle-board.completed {
-    animation: heartGlow 1.5s ease-in-out infinite;
-}
-
-@keyframes heartGlow {
-    0%, 100% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); }
-    50% { box-shadow: 0 0 40px rgba(255, 105, 180, 0.9); }
-}
-
-/* Конфетти */
-.confetti {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #FF69B4;
-    border-radius: 2px;
-    animation: confettiFall 3s ease-in-out forwards;
-    z-index: 1000;
-}
-
-@keyframes confettiFall {
-    0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 1;
+/* Адаптивность */
+@media (max-width: 768px) {
+    .video-title {
+        font-size: 28px;
     }
-    100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
+    
+    .video-wrapper {
+        width: 95%;
+    }
+    
+    .video-frame {
+        padding: 20px;
+    }
+    
+    .btn-back {
+        width: 100%;
+        max-width: 300px;
     }
 }
