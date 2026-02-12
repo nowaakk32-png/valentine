@@ -3,60 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Последний пазл для Дашулечки 🧩</title>
+    <title>Специальный подарок для Дашулечки 💝</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page4.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="puzzle-title">Последний пазл для моей Дашулечки 💘</h1>
+        <h1 class="video-title">💝 Особенный подарок для моей Дашулечки 💝</h1>
         
-        <div class="puzzle-container">
-            <!-- Контейнер для пазла -->
-            <div class="puzzle-board">
-                <!-- Фон пазла (сердечко) -->
-                <div class="puzzle-background">
-                    <div class="heart-background"></div>
+        <div class="video-container">
+            <!-- Декоративная рамка -->
+            <div class="video-frame">
+                <div class="frame-decoration">
+                    <div class="frame-corner top-left"></div>
+                    <div class="frame-corner top-right"></div>
+                    <div class="frame-corner bottom-left"></div>
+                    <div class="frame-corner bottom-right"></div>
+                    <div class="frame-hearts">
+                        <span class="heart">❤️</span>
+                        <span class="heart">💕</span>
+                        <span class="heart">💖</span>
+                        <span class="heart">💘</span>
+                        <span class="heart">💝</span>
+                    </div>
                 </div>
                 
-                <!-- Собранные кусочки пазла -->
-                <div class="puzzle-piece piece-1 assembled"></div>
-                <div class="puzzle-piece piece-2 assembled"></div>
-                <div class="puzzle-piece piece-3 assembled"></div>
-                <div class="puzzle-piece piece-4 assembled"></div>
-                <div class="puzzle-piece piece-5 assembled"></div>
-                <div class="puzzle-piece piece-6 assembled"></div>
-                <div class="puzzle-piece piece-7 assembled"></div>
-                <div class="puzzle-piece piece-8 assembled"></div>
-                
-                <!-- Место для последней детали (пустое) -->
-                <div id="dropZone" class="drop-zone"></div>
-                
-                <!-- Последняя деталь пазла (свободная) -->
-                <div 
-                    id="puzzlePiece" 
-                    class="puzzle-piece draggable"
-                    draggable="true"
-                ></div>
+                <!-- Видео -->
+                <div class="video-wrapper">
+                    <video 
+                        id="loveVideo" 
+                        controls
+                        poster="images/video-poster.jpg"
+                        preload="metadata"
+                    >
+                        <source src="video/message.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
             </div>
             
-            <p class="puzzle-instruction">Вставь последнюю детальку пазла и открой наше сердечко 💖</p>
+            <div class="video-caption">
+                <p>Я записал это видео специально для тебя, моя любимая Дашулечка! 🌹</p>
+            </div>
         </div>
         
-        <!-- Сообщение после сборки пазла -->
-        <div id="completionMessage" class="completion-message">
-            <h2>💘 Ты собрала наш пазл! 💘</h2>
-            <p class="completion-text">
-                Моя любимая Дашулечка! Ты - мое солнышко, моя принцессочка, мой котенок и мой ангелочек! 🌹<br><br>
-                
-                Каждый день с тобой наполнен любовью и счастьем. Ты делаешь мою жизнь ярче и прекраснее.<br><br>
-                
-                Я люблю тебя больше всего на свете и ценю каждую минуту, проведённую с тобой 💕<br><br>
-                
-                С любовью, твой Илья 💝
-            </p>
-            <button id="finalButton" class="btn btn-final">Назад на главную 🏠</button>
-        </div>
+        <button id="backButton" class="btn btn-back">Вернуться на главную 🏠</button>
     </div>
     
     <script src="js/script.js"></script>
