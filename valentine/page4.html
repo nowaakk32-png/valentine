@@ -3,56 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Секретный пазл для Дашулечки 🧩</title>
+    <title>Последний пазл для Дашулечки 🧩</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page4.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="puzzle-title">Секретный пазл для моей Дашулечки 💘</h1>
+        <h1 class="puzzle-title">Последний пазл для моей Дашулечки 💘</h1>
         
         <div class="puzzle-container">
             <!-- Контейнер для пазла -->
             <div class="puzzle-board">
-                <!-- Почти собранное сердечко -->
-                <div class="puzzle-heart">
-                    <div class="heart-piece piece-1"></div>
-                    <div class="heart-piece piece-2"></div>
-                    <div class="heart-piece piece-3"></div>
-                    <div class="heart-piece piece-4"></div>
-                    <div class="heart-piece piece-5"></div>
-                    <div class="heart-piece piece-6"></div>
-                    <div class="heart-piece piece-7"></div>
-                    <div class="heart-piece piece-8"></div>
-                    
-                    <!-- Место для последней детали -->
-                    <div id="dropZone" class="drop-zone">
-                        <div class="drop-placeholder">?</div>
-                    </div>
+                <!-- Фон пазла (сердечко) -->
+                <div class="puzzle-background">
+                    <div class="heart-background"></div>
                 </div>
                 
-                <!-- Последняя деталь пазла -->
+                <!-- Собранные кусочки пазла -->
+                <div class="puzzle-piece piece-1 assembled"></div>
+                <div class="puzzle-piece piece-2 assembled"></div>
+                <div class="puzzle-piece piece-3 assembled"></div>
+                <div class="puzzle-piece piece-4 assembled"></div>
+                <div class="puzzle-piece piece-5 assembled"></div>
+                <div class="puzzle-piece piece-6 assembled"></div>
+                <div class="puzzle-piece piece-7 assembled"></div>
+                <div class="puzzle-piece piece-8 assembled"></div>
+                
+                <!-- Место для последней детали (пустое) -->
+                <div id="dropZone" class="drop-zone"></div>
+                
+                <!-- Последняя деталь пазла (свободная) -->
                 <div 
                     id="puzzlePiece" 
                     class="puzzle-piece draggable"
                     draggable="true"
-                >
-                    💕
-                </div>
+                ></div>
             </div>
             
-            <p class="puzzle-instruction">Перетащи последнюю детальку на место и собери наше сердечко вместе 💖</p>
+            <p class="puzzle-instruction">Вставь последнюю детальку пазла и открой наше сердечко 💖</p>
         </div>
         
         <!-- Сообщение после сборки пазла -->
         <div id="completionMessage" class="completion-message">
-            <h2>💘 Ты собрала наше сердечко! 💘</h2>
+            <h2>💘 Ты собрала наш пазл! 💘</h2>
             <p class="completion-text">
                 Моя любимая Дашулечка! Ты - мое солнышко, моя принцессочка, мой котенок и мой ангелочек! 🌹<br><br>
                 
-                Ты делаешь меня счастливым каждый день. Я люблю тебя больше всего на свете!<br><br>
+                Каждый день с тобой наполнен любовью и счастьем. Ты делаешь мою жизнь ярче и прекраснее.<br><br>
                 
-                Спасибо, что ты есть у меня. Ты - самое ценное сокровище в моей жизни 💕<br><br>
+                Я люблю тебя больше всего на свете и ценю каждую минуту, проведённую с тобой 💕<br><br>
                 
                 С любовью, твой Илья 💝
             </p>
