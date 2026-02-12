@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание для Дашулечки 🧩</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page2.css">
+    <link rel="icon" href="images/icons8-favorite-96.png">
+</head>
+<body>
+    <div class="container">
+        <div class="task-container">
+            <div class="task-text">
+                <h2>Загадка для моей принцессочки 🌹</h2>
+                <p class="riddle">
+                    Но прежде чем стать моей валентинкой, ты должна пройти легкий тестик 💖<br><br>
+                    Мой пин-код состоит из самой важной для нас даты <br>
+                    Попробуй догадаться, я верю, что ты справишься <br>
+                    Я люблю тебяя очень сильнооо 🧮
+                </p>
+                <p class="hint">Подсказка: Мы празднуем ее каждый год </p>
+            </div>
+            
+            <div class="pin-container">
+                <h3>Введи пин-код:</h3>
+                <input 
+                    type="tel" 
+                    id="pinInput" 
+                    class="pin-input" 
+                    maxlength="4"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                >
+
+                <button id="submitPin" class="btn btn-submit">Проверить 🔐</button>
+                <p id="pinMessage" class="message"></p>
+            </div>
+        </div>
+    </div>
+    
+<!-- Секретное сердечко -->
+    <div id="secretHeart" class="secret-heart">❤️</div>
+    
+    <!-- Стрела -->
+    <div id="arrow" class="arrow">🏹</div>
+    
+    <!-- Секретное поле для пин-кода -->
+    <div id="secretPinModal" class="secret-pin-modal">
+        <div class="secret-pin-content">
+            <button id="closeSecretPin" class="close-btn">×</button>
+            <h3>Секретный пин-код 💘</h3>
+            <p class="secret-hint">Эта дата связана с тобой и только с тобой, но для меня она тоже очень важна🤫</p>
+            <input 
+                type="tel" 
+                id="secretPinInput" 
+                class="secret-pin-input" 
+                maxlength="4"
+                placeholder="****"
+                autocomplete="off"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                >
+            <button id="submitSecretPin" class="btn btn-secret">Проверить 💝</button>
+            <p id="secretPinMessage" class="message"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/page2.js"></script>
+</body>
+</html>

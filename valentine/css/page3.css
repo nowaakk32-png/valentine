@@ -1,0 +1,208 @@
+.final-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+}
+
+.star-container {
+    position: relative;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.star {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    position: relative;
+    z-index: 10;
+}
+
+.star img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.counter {
+    font-size: 18px;
+    color: var(--dark-text);
+    margin-top: 20px;
+}
+
+.letter {
+    background: #FFF8F8;
+    border: 3px solid var(--border);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter-header {
+    border-bottom: 2px dashed var(--border);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.letter-body {
+    line-height: 1.8;
+    font-size: 18px;
+    color: var(--dark-text);
+}
+
+.letter-footer {
+    border-top: 2px dashed var(--border);
+    padding-top: 15px;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Стили для пасхалки */
+.easter-egg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 214, 232, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.easter-egg-content {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(233, 30, 99, 0.4);
+    max-width: 500px;
+    width: 90%;
+    border: 5px solid #FFB6C1;
+    position: relative;
+    overflow: hidden;
+}
+
+.easter-egg-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.cat-gif {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 3px solid #FFC0CB;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.easter-egg-text {
+    font-size: 28px;
+    color: #E91E63;
+    margin: 20px 0;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.easter-egg-subtext {
+    font-size: 16px;
+    color: #FF69B4;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-close {
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-close:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.btn-close:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Анимация для текста пасхалки */
+@keyframes textPop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.easter-egg-text {
+    animation: textPop 2s ease-in-out infinite;
+}
+
+/* Декоративные элементы вокруг пасхалки */
+.easter-egg-content::after {
+    content: '🎉💝🎁';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
